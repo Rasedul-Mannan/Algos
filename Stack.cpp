@@ -16,7 +16,7 @@ void stack::push(int ind)
 {
     if (isFull())
     {
-        cout << "Stack Overflow\";
+        cout << "Stack Overflow\
         return;
     }
     top++;
@@ -27,7 +27,7 @@ int stack::pop()
 {
     if (isEmpty())
     {
-        cout << "Stack is already empty\";
+        cout << "Stack is already empty\
         return -1;
     }
     int val = st[top];
@@ -55,17 +55,28 @@ void stack::traverse()
         return;
     for (i = 0; i <= top; i++)
         cout << st[i] << " ";
-    cout << " Done\";
+    cout << " Done\
 }
+
 
 int main()
 {
     long long n, i, j, k, l;
-    stack p;
-    p.push(67);
-    p.traverse();
-    p.push(56);
-    p.traverse();
-    p.pop();
-    p.traverse();
+    stack q;
+    while (1)
+    {
+        cout << "Enter 1 to push,2 to pop,3 to traverse : ";
+        cin >> k;
+        if (k == 1)
+        {
+            cout << "Enter a value : ";
+            cin >> l;
+            q.push(l);
+        }
+        else if (k == 2)
+            q.pop();
+            
+        else
+            q.traverse();
+    }
 }
