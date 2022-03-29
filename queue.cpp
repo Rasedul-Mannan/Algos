@@ -1,4 +1,37 @@
-#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+vector<long long>v[100005];
+long long lev[100005],vis[100005];
+void bfs(){
+    queue<int>q;
+    q.push(1);
+    vis[1]=true;
+    lev[1]=0;
+    while(q.size()){
+        int f=q.front();
+        q.pop();
+        for(auto t:v[f]){
+            if(vis[t]==false){
+                vis[t]=true;
+                q.push(t);
+                lev[t]=lev[f]+1;
+            }
+        }
+    }
+}
+int main()
+{
+    long long n,i,j,k,aa=0,ans=0,a,b;
+    cin>>n;
+    for(i=1;i<n;i++){
+        cin>>a>>b;
+        v[a].push_back(b);
+        v[b].push_back(a);
+    }
+    bfs();
+    for(i=2;i<=n;i++){
+        if(v[i].size()==1){
+            ans+=lev[i];#include <iostream>
 using namespace std;
 
 int queuesize = 100, qu[100];
@@ -16,9 +49,10 @@ void queue::enqueue(int ind)
 {
     if (isFull())
     {
-        cout << "Queue is full\";
+        cout << "Queue is full\n";
             return;
     }
+
     if (count == 0)
         rear = front = 0;
     else if (count == queuesize - 1)
@@ -33,7 +67,7 @@ int queue::dequeue()
 {
     if (isEmpty())
     {
-        cout << "Queue is already empty\";
+        cout << "Queue is already empty\n";
             return -1;
     }
     int val = qu[front];
@@ -64,7 +98,7 @@ void queue::traverse()
     int i;
     if (isEmpty())
     {
-        cout << "queue is empty\";
+        cout << "queue is empty\n";
             return;
     }
     i = front;
@@ -77,7 +111,7 @@ void queue::traverse()
             i++;
     }
 
-    cout << " Done\";
+    cout << " Done\n";
 }
 
 int main()
@@ -100,3 +134,8 @@ int main()
         else
             q.traverse();
     }
+            aa++;
+        }
+    }
+    printf("%.10lf\n",(double)ans/aa);
+}
