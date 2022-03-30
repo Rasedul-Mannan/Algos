@@ -10,7 +10,7 @@ public:
     }
     void del(int index)
     {
-        for(int i=index;i<size;i++)
+        for(int i=index;i<size-1;i++)
         {
             array[i]=array[i+1];
 
@@ -20,6 +20,7 @@ public:
     void show()
     {
         for(int i=0;i<size;i++)cout<<array[i]<<" ";
+        cout<<endl;
     }
 };
 int main()
@@ -32,6 +33,7 @@ int main()
     }
     cout<<"Enter the index to delete ";
     cin>>in;
+    in--;
     dellete A(n,a);
     A.del(in);
     A.show();
