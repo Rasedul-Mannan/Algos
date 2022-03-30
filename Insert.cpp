@@ -10,12 +10,13 @@ public:
     }
     void inserrt(int index,int value)
     {
-        for(int i=size-1;i>=index-1;i--)
+    	
+        for(int i=size-1;i>=index;i--)
         {
             array[i+1]=array[i];
 
         }
-        array[index-1]=value;
+        array[index]=value;
         size++;
     }
     void show()
@@ -32,6 +33,7 @@ int main()
         cin>>a[i];
     }
     cin>>in>>val;
+    in--;
     insert A(n,a);
     A.inserrt(in,val);
     A.show();
