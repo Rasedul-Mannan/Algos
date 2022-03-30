@@ -101,8 +101,5 @@ int main()
         else
             q.traverse();
     }
-            aa++;
-        }
-    }
-    printf("%.10lf\n",(double)ans/aa);
+       
 }
